@@ -1,4 +1,4 @@
-public class Animal {
+public class Animal implements Comparable {
     private String name;
     private String desc;
     private String type;
@@ -15,11 +15,26 @@ public class Animal {
         return name;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
     @Override
     public String toString() {
         return name + " the " + desc + " " + type + ", age " + age;
     }
 
 
+    @Override
+    public int compareTo(Object other) {
+        Animal otherAnimal = (Animal) other;
+        String animalName = this.getName();
+        String otherName = otherAnimal.getName();
 
+        return animalName.compareTo(otherName);
+    }
 }
